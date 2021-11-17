@@ -1,0 +1,20 @@
+﻿@model Bici
+
+<h1>Controller 1 de Bici</h1>
+<img src="~/images/@Model.Imagen"
+     style="width:300px; height: 300px" />
+<h1 style="color:darkblue">
+    Marca: @Model.Marca
+</h1>
+<h2 style="color:darkslategrey">
+    Velociad actual: @Model.Velocidad
+</h2>
+
+<form method="post">
+    <button class="btn-success" name="accion" value="acelerar">
+        Acelerar
+    </button>
+    <button class="btn-danger" name="accion" value="frenar">
+        Frenar
+    </button>
+</form>
