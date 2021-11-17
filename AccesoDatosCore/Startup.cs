@@ -1,3 +1,4 @@
+using AccesoDatosCore.Data;
 using AccesoDatosCore.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,20 +25,30 @@ namespace AccesoDatosCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            Bici cannondale = new Bici();
-            cannondale.Marca = "Cannondale";
-            cannondale.Imagen = "cannondale.jpg";
-            cannondale.Velocidad = 0;
-            cannondale.Aceleracion = 6;
+            //bicis
+            {
+                Bici cannondale = new Bici();
+                cannondale.Marca = "Cannondale";
+                cannondale.Imagen = "cannondale.jpg";
+                cannondale.Velocidad = 0;
+                cannondale.Aceleracion = 6;
 
-            Bici felt = new Bici();
-            felt.Marca = "Felt";
-            felt.Imagen = "felt.jpg";
-            felt.Velocidad = 0;
-            felt.Aceleracion = 4;
+                Bici felt = new Bici();
+                felt.Marca = "Felt";
+                felt.Imagen = "felt.jpg";
+                felt.Velocidad = 0;
+                felt.Aceleracion = 4;
 
-            //inyectamos bici
-            services.AddTransient<Bici>(bici => felt);
+                //inyectamos bici
+                services.AddTransient<Bici>(bici => felt);
+            }
+
+            String cadenaconexion = this.Configuration.GetConnectionString("hospitallocal");
+            EmpleadosContext context = new EmpleadosContext(cadenaconexion);
+            PlantillasContext pcontext = new PlantillasContext(cadenaconexion);
+            services.AddTransient<EmpleadosContext>(contexto => context);
+            services.AddTransient<PlantillasContext>(contexto => pcontext);
+
             services.AddControllersWithViews();
         }
 
