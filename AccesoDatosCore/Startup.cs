@@ -46,9 +46,10 @@ namespace AccesoDatosCore
             String cadenaconexion = this.Configuration.GetConnectionString("hospitallocal");
             EmpleadosContext context = new EmpleadosContext(cadenaconexion);
             PlantillasContext pcontext = new PlantillasContext(cadenaconexion);
+            EnfermosContext enfermocontext = new EnfermosContext(cadenaconexion);
             services.AddTransient<EmpleadosContext>(contexto => context);
             services.AddTransient<PlantillasContext>(contexto => pcontext);
-
+            services.AddTransient<EnfermosContext>(contexto => enfermocontext);
             services.AddControllersWithViews();
         }
 

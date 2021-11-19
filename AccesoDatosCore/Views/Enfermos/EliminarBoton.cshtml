@@ -1,0 +1,49 @@
+﻿@model List<Enfermo>
+
+@{
+    List<Enfermo> listaenfermos = ViewBag.Enfermos as List<Enfermo>;
+}
+
+<h1>Eliminar un enfermo con un botón</h1>
+
+<form method="post">
+    <label>Seleccione un enfermo: </label>
+    <select name="inscripcion" class="form-control">
+        @foreach (Enfermo enf in Model)
+        {
+            <option value="@enf.Inscripcion">@enf.Apellido</option>
+        }
+    </select><br />
+    <button class="btn btn-danger">
+        Eliminar
+    </button>
+</form>
+<hr />
+
+
+@if (ViewBag.Elim != 0)
+{
+    <h3>Eliminados : @ViewBag.Elim</h3>
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Inscripcion</th>
+            <th>Apellido</th>
+            <th>Direccion</th>
+            <th>NSS</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Enfermo e in Model)
+        {
+            <tr>
+                <td>@e.Inscripcion</td>
+                <td>@e.Apellido</td>
+                <td>@e.Direccion</td>
+                <td>@e.Nss</td>
+            </tr>
+        }
+    </tbody>
+</table>

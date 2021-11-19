@@ -36,10 +36,32 @@
                                 Bici 2
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Enfermo
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li class="dropdown-item">
+                                    <a class="nav-link" style="color:darkslategrey"
+                                       asp-controller="Enfermos"
+                                       asp-action="EliminarLista">
+                                        Eliminar enfermo lista
+                                    </a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a class="nav-link" style="color:darkslategrey"
+                                       asp-controller="Enfermos"
+                                       asp-action="EliminarBoton">
+                                        Eliminar enfermo boton
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                     
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Plantilla
