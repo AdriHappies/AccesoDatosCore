@@ -75,5 +75,97 @@ namespace AccesoDatosCore.Data
             this.com.Parameters.Clear();
             return empleado;
         }
+
+        public List<Empleado> GetEmpleadosSalario(int salario)
+        {
+            String sql = "select * from emp where salario>@salario";
+            this.com.CommandText = sql;
+            SqlParameter pamsalario = new SqlParameter("@salario", salario);
+            this.com.Parameters.Add(pamsalario);
+            this.cn.Open();
+            this.reader = this.com.ExecuteReader();
+            List<Empleado> listaempleados = new List<Empleado>();
+            while (this.reader.Read())
+            {
+                    Empleado empleado = new Empleado();
+                    empleado.Apellido = this.reader["APELLIDO"].ToString();
+                    empleado.IdEmpleado = (int)this.reader["EMP_NO"];
+                    empleado.Oficio = this.reader["OFICIO"].ToString();
+                    empleado.Salario = (int)this.reader["SALARIO"];
+                    listaempleados.Add(empleado);
+                
+            }
+            this.reader.Close();
+            this.cn.Close();
+            this.com.Parameters.Clear();
+            if (listaempleados.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return listaempleados;
+            }
+        }
+
+        public List<String> GetOficios()
+        {
+            String sql = "select distinct oficio from emp";
+            this.com.CommandText = sql;
+            this.cn.Open();
+            this.reader = this.com.ExecuteReader();
+            List<String> listaoficios = new List<String>();
+            while (this.reader.Read())
+            {
+                String oficio = this.reader["OFICIO"].ToString();
+                listaoficios.Add(oficio);
+            }
+            this.reader.Close();
+            this.cn.Close();
+            return listaoficios;
+        }
+
+        public List<Empleado> GetEmpleadosOficio(String oficio)
+        {
+            String sql = "select * from emp where oficio=@oficio";
+            this.com.CommandText = sql;
+            SqlParameter pamofico = new SqlParameter("@oficio", oficio);
+            this.com.Parameters.Add(pamofico);
+            this.cn.Open();
+            this.reader = this.com.ExecuteReader();
+
+            List<Empleado> listaempleados = new List<Empleado>();
+            while (this.reader.Read())
+            {
+                Empleado empleado = new Empleado();
+                empleado.Apellido = this.reader["APELLIDO"].ToString();
+                empleado.IdEmpleado = (int)this.reader["EMP_NO"];
+                empleado.Oficio = this.reader["OFICIO"].ToString();
+                empleado.Salario = (int)this.reader["SALARIO"];
+                listaempleados.Add(empleado);
+
+            }
+
+            this.reader.Close();
+            this.cn.Close();
+            this.com.Parameters.Clear();
+            return listaempleados;
+        }
+
+        public int IncrementarSalarioEmpleado(int idempleado, int incremento)
+        {
+            String sql = "update emp set salario = salario + @incremento" +
+                " where emp_no=@idempleado";
+            this.com.CommandText = sql;
+            SqlParameter pamincre = new SqlParameter("@incremento", incremento);
+            SqlParameter pamid = new SqlParameter("@idempleado", idempleado);
+            this.com.Parameters.Add(pamincre);
+            this.com.Parameters.Add(pamid);
+            this.cn.Open();
+            int resultado = this.com.ExecuteNonQuery();
+            this.cn.Close();
+            this.com.Parameters.Clear();
+            return resultado;
+        }
     }
 }

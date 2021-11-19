@@ -40,7 +40,7 @@ namespace AccesoDatosCore
                 felt.Aceleracion = 4;
 
                 //inyectamos bici
-                services.AddTransient<Bici>(bici => felt);
+                services.AddTransient<Bici>(bici => cannondale);
             }
 
             String cadenaconexion = this.Configuration.GetConnectionString("hospitallocal");

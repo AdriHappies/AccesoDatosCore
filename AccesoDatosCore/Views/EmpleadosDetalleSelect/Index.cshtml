@@ -1,0 +1,42 @@
+﻿@model Empleado
+
+@{
+    List<Empleado> listaapellidos= ViewBag.Apellidos as List<Empleado>;
+}
+
+<h1>Empleados Oficios</h1>
+
+<form method="post">
+    <label>Seleccione un apellido: </label>
+    <select name="id" class="form-control">
+        @foreach (Empleado emp in listaapellidos)
+        {
+            <option value="@emp.IdEmpleado">@emp.Apellido</option>
+        }
+    </select>
+    <button class="btn btn-dark">
+        Elegir
+    </button>
+</form>
+
+@if (Model != null)
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Apellido</th>
+                <th>Oficio</th>
+                <th>Id</th>
+                <th>Salario</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>@Model.Apellido</td>
+                    <td>@Model.Oficio</td>
+                    <td>@Model.IdEmpleado</td>
+                    <td>@Model.Salario</td>
+                </tr>
+        </tbody>
+    </table>
+}

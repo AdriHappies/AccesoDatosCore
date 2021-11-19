@@ -10,5 +10,7 @@ namespace AccesoDatosCore.Models
         public String Apellido { get; set; }
         public String Funcion { get; set; }
         public int Salario { get; set; }
+        public int IdPlantilla { get; set; }
+        public String Turno { get; set; }
     }
 }

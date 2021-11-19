@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - AccesoDatosCore</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
     <header>
@@ -35,29 +36,87 @@
                                 Bici 2
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="color:seagreen"
-                               asp-controller="Empleados"
-                               asp-action="Index">
-                                Tabla empleados
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="color:seagreen"
-                               asp-controller="Plantillas"
-                               asp-action="Index">
-                                Tabla plantilla
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="color:deeppink"
-                               asp-controller="MaestroDetalleEmpleados"
-                               asp-action="DatosEmpleados">
-                                Maestro Empleados Datos
-                            </a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Plantilla
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li class="dropdown-item">
+                                    <a class="nav-link" style="color:seagreen"
+                                       asp-controller="Plantillas"
+                                       asp-action="Index">
+                                        Tabla plantilla
+                                    </a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a class="nav-link" style="color:seagreen"
+                                       asp-controller="PlantillaTurno"
+                                       asp-action="Index">
+                                        Buscar plantilla por turno
+                                    </a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a class="nav-link" style="color:seagreen"
+                                       asp-controller="IncrementoPlantilla"
+                                       asp-action="Index">
+                                        Incrementar salario
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Empleados
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li class="dropdown-item">
+                                    <a class="nav-link" style="color:seagreen"
+                                       asp-controller="Empleados"
+                                       asp-action="Index">
+                                        Tabla empleados
+                                    </a>
+                                </li>
+
+                                <li class="dropdown-item">
+                                    <a class="nav-link" style="color:deeppink"
+                                       asp-controller="MaestroDetalleEmpleados"
+                                       asp-action="DatosEmpleados">
+                                        Maestro Empleados Datos
+                                    </a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a class="nav-link" style="color:darkred"
+                                       asp-controller="EmpleadosSalario"
+                                       asp-action="Index">
+                                        Buscar empleados por salario
+                                    </a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a class="nav-link" style="color:darkred"
+                                       asp-controller="EmpleadosOficio"
+                                       asp-action="Index">
+                                        Buscar empleados por oficio
+                                    </a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a class="nav-link" style="color:darkred"
+                                       asp-controller="EmpleadosDetalleSelect"
+                                       asp-action="Index">
+                                        Mostrar empleado por apellido
+                                    </a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a class="nav-link" style="color:darkred"
+                                       asp-controller="IncrementoEmpleado"
+                                       asp-action="Index">
+                                        Incrementar salario
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -75,8 +134,8 @@
             &copy; 2021 - AccesoDatosCore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

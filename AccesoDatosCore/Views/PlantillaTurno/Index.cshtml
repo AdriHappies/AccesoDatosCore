@@ -1,0 +1,37 @@
+﻿@model List<Plantilla>
+
+<h1>Busqueda de plantilla por TURNO</h1>
+<form method="post">
+    <label>Introduzca un turno (M,T,N): </label>
+    <input type="text" name="turno"
+           class="form-control" required />
+    <button class="btn btn-info">
+        Buscar plantilla
+    </button>
+</form>
+<hr />
+
+@if (Model != null)
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Apellido</th>
+                <th>Función</th>
+                <th>Salario</th>
+                <th>Turno</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Plantilla p in Model)
+            {
+                <tr>
+                    <td>@p.Apellido</td>
+                    <td>@p.Funcion</td>
+                    <td>@p.Salario</td>
+                    <td>@p.Turno</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

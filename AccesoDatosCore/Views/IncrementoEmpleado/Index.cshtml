@@ -1,0 +1,46 @@
+﻿@model Empleado
+
+@{
+    List<Empleado> listaempleados = ViewBag.Empleados as List<Empleado>;
+}
+
+<h1>Incremento Salario</h1>
+
+<form method="post">
+    <label>Seleccione un empleado: </label>
+    <select name="idempleado" class="form-control">
+        @foreach (Empleado emp in listaempleados)
+        {
+            <option value="@emp.IdEmpleado">@emp.IdEmpleado</option>
+        }
+    </select><br/>
+    <label>Introduzca el incremento: </label>
+    <input type="number" name="incremento" 
+           class="form-control" required/><br />
+    <button class="btn btn-dark">
+        Incrementar salario
+    </button>
+</form>
+<hr />
+@if (Model != null)
+{
+    <h2>@ViewBag.Mensaje</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Apellido</th>
+                <th>Oficio</th>
+                <th>Id</th>
+                <th>Salario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Apellido</td>
+                <td>@Model.Oficio</td>
+                <td>@Model.IdEmpleado</td>
+                <td>@Model.Salario</td>
+            </tr>
+        </tbody>
+    </table>
+}
