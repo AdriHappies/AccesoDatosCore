@@ -1,0 +1,23 @@
+﻿@model List<Doctor>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Apellido</th>
+            <th>Especialidad</th>
+            <th>Salario</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Doctor p in Model)
+        {
+            <tr>
+                <td>@p.DoctorNum</td>
+                <td>@p.Apellido</td>
+                <td>@p.Especialidad</td>
+                <td>@p.Salario</td>
+            </tr>
+        }
+    </tbody>
+</table>

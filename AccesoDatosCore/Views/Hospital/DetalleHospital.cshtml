@@ -1,0 +1,40 @@
+﻿@model Hospital
+
+<h1>Detalle hospital</h1><hr />
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>Nombre</th>
+            <th>Direccion</th>
+            <th>Telefono</th>
+            <th>Camas</th>
+        </tr>        
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <a class="btn btn-dark"
+                   asp-controller="Hospital"
+                   asp-action="ListaPlantilla"
+                   asp-route-hospitalcod="@Model.HospitalCod">
+                    Ver plantilla
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-dark"
+                   asp-controller="Hospital"
+                   asp-action="ListaDoctores"
+                   asp-route-hospitalcod="@Model.HospitalCod">
+                    Ver Doctores
+                </a>
+            </td>
+            <td>@Model.Nombre</td>
+            <td>@Model.Direccion</td>
+            <td>@Model.Telefono</td>
+            <td>@Model.NumCama</td>
+        </tr>
+    </tbody>
+</table>

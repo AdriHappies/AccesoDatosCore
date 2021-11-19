@@ -12,5 +12,7 @@ namespace AccesoDatosCore.Models
         public int Salario { get; set; }
         public int IdPlantilla { get; set; }
         public String Turno { get; set; }
+        public int SalaCod { get; set; }
+        public int HospitalCod { get; set; }
     }
 }

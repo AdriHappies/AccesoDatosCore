@@ -1,0 +1,17 @@
+﻿@model List<Hospital>
+
+<h1>Menu Hospital</h1><hr />
+
+<ul>
+    @foreach(Hospital h in Model)
+            {
+                <li class="btn">
+                    <a asp-controller="Hospital"
+                       asp-action="DetalleHospital"
+                       asp-route-hospitalcod="@h.HospitalCod">
+                        @h.Nombre
+                    </a>
+                </li>
+                <br/>
+            }
+</ul>
